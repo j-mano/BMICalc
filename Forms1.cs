@@ -17,6 +17,7 @@ namespace BMI
         public Forms1()
         {
             InitializeComponent();
+            LoadSavedValues();
         }
 
         private async void button1_ClickAsync(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace BMI
 
             try
             {
-                await saveToFile.SaveInfoToFileAsync(bmi);
+                await saveToFile.SaveInfoToFileAsync(savedvalues);
             }
             catch (Exception ee)
             {
@@ -86,9 +87,18 @@ namespace BMI
             }
         }
 
-        private void LoadSavedValues()
+        private async void LoadSavedValues()
         {
-
+            try
+            {
+                savedvalues = await LoadFromFile.LoadValuesFromXmlAsync();
+                PrintOutSavedValues();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+                ErrorMessage_LBL.Text = "Error While Loading History";
+            }
         }
 
         private void Ext_Btn_Click(object sender, EventArgs e)
