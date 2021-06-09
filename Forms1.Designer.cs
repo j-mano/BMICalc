@@ -29,6 +29,7 @@ namespace BMI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Forms1));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.WheigtInput_Box = new System.Windows.Forms.TextBox();
@@ -41,6 +42,8 @@ namespace BMI
             this.Message_LBL = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.ErrorMessage_LBL = new System.Windows.Forms.Label();
+            this.ListBox_SavedValues = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -61,7 +64,6 @@ namespace BMI
             this.label1.Size = new System.Drawing.Size(84, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "BMI beräkning";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // WheigtInput_Box
             // 
@@ -99,6 +101,7 @@ namespace BMI
             // 
             this.BMI_PrintOut.Location = new System.Drawing.Point(30, 98);
             this.BMI_PrintOut.Name = "BMI_PrintOut";
+            this.BMI_PrintOut.ReadOnly = true;
             this.BMI_PrintOut.Size = new System.Drawing.Size(206, 23);
             this.BMI_PrintOut.TabIndex = 6;
             // 
@@ -124,12 +127,11 @@ namespace BMI
             // Message_LBL
             // 
             this.Message_LBL.AutoSize = true;
-            this.Message_LBL.Location = new System.Drawing.Point(30, 161);
+            this.Message_LBL.Location = new System.Drawing.Point(30, 176);
             this.Message_LBL.Name = "Message_LBL";
             this.Message_LBL.Size = new System.Drawing.Size(77, 15);
             this.Message_LBL.TabIndex = 9;
             this.Message_LBL.Text = "Bmi Message";
-            this.Message_LBL.Click += new System.EventHandler(this.label5_Click);
             // 
             // label5
             // 
@@ -142,17 +144,38 @@ namespace BMI
             // ErrorMessage_LBL
             // 
             this.ErrorMessage_LBL.AutoSize = true;
-            this.ErrorMessage_LBL.Location = new System.Drawing.Point(30, 176);
+            this.ErrorMessage_LBL.Location = new System.Drawing.Point(30, 161);
             this.ErrorMessage_LBL.Name = "ErrorMessage_LBL";
             this.ErrorMessage_LBL.Size = new System.Drawing.Size(117, 15);
             this.ErrorMessage_LBL.TabIndex = 11;
             this.ErrorMessage_LBL.Text = "Working as expected";
             // 
+            // ListBox_SavedValues
+            // 
+            this.ListBox_SavedValues.FormattingEnabled = true;
+            this.ListBox_SavedValues.ItemHeight = 15;
+            this.ListBox_SavedValues.Location = new System.Drawing.Point(271, 58);
+            this.ListBox_SavedValues.Name = "ListBox_SavedValues";
+            this.ListBox_SavedValues.Size = new System.Drawing.Size(476, 154);
+            this.ListBox_SavedValues.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(271, 36);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 15);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "10 last saved values";
+            // 
             // Forms1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 223);
+            this.ClientSize = new System.Drawing.Size(759, 226);
+            this.ControlBox = false;
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ListBox_SavedValues);
             this.Controls.Add(this.ErrorMessage_LBL);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Message_LBL);
@@ -165,8 +188,10 @@ namespace BMI
             this.Controls.Add(this.WheigtInput_Box);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Forms1";
-            this.Text = "Form1";
+            this.Text = "BMI Healh Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,6 +211,8 @@ namespace BMI
         private System.Windows.Forms.Label Message_LBL;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label ErrorMessage_LBL;
+        private System.Windows.Forms.ListBox ListBox_SavedValues;
+        private System.Windows.Forms.Label label6;
     }
 }
 

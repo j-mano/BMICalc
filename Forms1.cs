@@ -13,21 +13,24 @@ namespace BMI
 {
     public partial class Forms1 : Form
     {
+        List<SavedValue> savedvalues = new List<SavedValue>();
         public Forms1()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private async void button1_ClickAsync(object sender, EventArgs e)
         {
+            await CalculateBMIandSave();
 
+            PrintOutSavedValues();
         }
 
-        private async void button1_ClickAsync(object sender, EventArgs e)
+        public async Task CalculateBMIandSave()
         {
             float wheigt = 0;
             float Height = 0;
-            float bmi    = 0;
+            float bmi = 0;
 
             try
             {
@@ -35,6 +38,8 @@ namespace BMI
                 Height = float.Parse(LenhgInput_Box.Text);
 
                 bmi = CalcBmi.Calcbmi(Height, wheigt);
+
+                CreateBmiSavedValue(bmi);
 
                 BMI_PrintOut.Text = bmi.ToString();
                 Message_LBL.Text = BMIHealthCheck.BMIHealthcheck(bmi);
@@ -53,18 +58,42 @@ namespace BMI
                 Console.WriteLine(ee);
 
                 ErrorMessage_LBL.Text = "Error While saveing";
-                Console.WriteLine("Error While saveing");
+                Console.WriteLine("Error While saving");
             }
+        }
+
+        private void CreateBmiSavedValue(float bmi)
+        {
+            SavedValue lastvalueenterd = new SavedValue();
+
+            lastvalueenterd.bmi         = bmi;
+            lastvalueenterd.Date        = DateTime.Now;
+            lastvalueenterd.heahltRec   = BMIHealthCheck.BMIHealthcheck(bmi);
+
+            savedvalues.Add(lastvalueenterd);
+
+            if (savedvalues.Count > 10)
+                savedvalues.RemoveAt(0);
+        }
+
+        private void PrintOutSavedValues()
+        {
+            ListBox_SavedValues.Items.Clear();
+
+            foreach (SavedValue BmiVBalue in savedvalues)
+            {
+                ListBox_SavedValues.Items.Add("BMI: " + BmiVBalue.bmi + ", Date: " + BmiVBalue.Date + ", Health: " + BmiVBalue.heahltRec);
+            }
+        }
+
+        private void LoadSavedValues()
+        {
+
         }
 
         private void Ext_Btn_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
