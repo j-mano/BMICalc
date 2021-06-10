@@ -20,6 +20,7 @@ namespace BMI
             LoadSavedValues();
         }
 
+        // Calculation button
         private async void button1_ClickAsync(object sender, EventArgs e)
         {
             await CalculateBMIandSave();
@@ -27,6 +28,10 @@ namespace BMI
             PrintOutSavedValues();
         }
 
+        /// <summary>
+        /// Calculates the BMI and send list and saving.""
+        /// </summary>
+        /// <returns>The BMI and save.</returns>
         public async Task CalculateBMIandSave()
         {
             float wheigt = 0;
@@ -47,7 +52,7 @@ namespace BMI
             }
             catch
             {
-                Message_LBL.Text = "Error.\r Please put in an valid numbers in the input.\r Like wheigt 65.3 and heigt 170cm";
+                Message_LBL.Text = "Error.\r Please put in an valid numbers in the input.\r Like weight 65.3 and height 170cm";
             }
 
             try
@@ -58,11 +63,15 @@ namespace BMI
             {
                 Console.WriteLine(ee);
 
-                ErrorMessage_LBL.Text = "Error While saveing";
+                ErrorMessage_LBL.Text = "Error While saving";
                 Console.WriteLine("Error While saving");
             }
         }
 
+        /// <summary>
+        /// adding value to list
+        /// </summary>
+        /// <param name="bmi">Bmi.</param>
         private void CreateBmiSavedValue(float bmi)
         {
             SavedValue lastvalueenterd = new SavedValue();
@@ -77,13 +86,16 @@ namespace BMI
                 savedvalues.RemoveAt(0);
         }
 
+        /// <summary>
+        /// Printing out saves values in the system.
+        /// </summary>
         private void PrintOutSavedValues()
         {
             ListBox_SavedValues.Items.Clear();
 
             foreach (SavedValue BmiVBalue in savedvalues)
             {
-                ListBox_SavedValues.Items.Add("BMI: " + BmiVBalue.bmi + ", Date: " + BmiVBalue.Date + ", Health: " + BmiVBalue.heahltRec);
+                ListBox_SavedValues.Items.Add("BMI: " + BmiVBalue.bmi + ", Datum vid beräkning: " + BmiVBalue.Date + ", Medelande: " + BmiVBalue.heahltRec);
             }
         }
 
@@ -97,7 +109,7 @@ namespace BMI
             catch (Exception e)
             {
                 Console.WriteLine("Error: " + e);
-                ErrorMessage_LBL.Text = "Error While Loading History";
+                ErrorMessage_LBL.Text = "Fel vid laddning av hiostorik.";
             }
         }
 

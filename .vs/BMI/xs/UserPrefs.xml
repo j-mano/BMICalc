@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{AC77E084-1BE5-44EB-8A65-5415B45088BA}|Default">
+  <MonoDevelop.Ide.ItemProperties.BMI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BMI" expanded="True">
+            <Node name="BMI" expanded="True">
+              <Node name="Services" expanded="True">
+                <Node name="BMi" expanded="True" />
+                <Node name="Model" expanded="True" />
+              </Node>
+              <Node name="Forms1.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
