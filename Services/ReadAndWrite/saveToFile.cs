@@ -18,7 +18,7 @@ namespace BMI.Services
                 XmlElement BMI = doc.CreateElement("Bmi_Calculation_result");
                 BMI.AppendChild(doc.CreateElement("BMI", saveditem.bmi.ToString()));
                 BMI.AppendChild(doc.CreateElement("Date", saveditem.Date.ToString()));
-                BMI.AppendChild(doc.CreateElement("Health", saveditem.Date.ToString()));
+                BMI.AppendChild(doc.CreateElement("Health", saveditem.heahltRec.ToString()));
                 doc.DocumentElement.AppendChild(BMI);
 
                 XmlWriterSettings settings = new XmlWriterSettings();
